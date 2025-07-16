@@ -1,0 +1,269 @@
+Plik "polgdanska" w archiwum ZIP jest tekstem biblii umieszczonym w rożnych aplikacjach mobilnych w czasie między 2009 a 2025 rokiem. Stanowił odniesienie ktore wersety zostały inaczej ponumerowane pomiędzy PBG a KJV.
+
+
+Lista linii tekstu Biblii Gdańskiej 1879, ktorych numeracja rożni się względem KJV (treść każdej z wymienionych linii znajduje się na końcu tego pliku):
+
+3237, 3472, 4077, 4111, 4650, 4667, 7566, 7598, 7778, 7842, 7866, 8359, 9538, 10563, 10580, 12039, 12102, 13775, 13798, 13836, 13866, 13898, 13927, 13971, 13980, 13993, 14004, 14022, 14032, 14053, 14087, 14101, 14183, 14198, 14208, 14222, 14254, 14351, 14376, 14432, 14473, 14536, 14550, 14568, 14582, 14594, 14626, 14644, 14656, 14666, 14681, 14702, 14745, 14756, 14764, 14772, 14797, 14811, 14823, 14835, 14853, 14866, 14876, 14889, 14901, 14912, 14926, 14954, 14990, 15028, 15033, 15139, 15152, 15174, 15278, 15295, 15322, 15335, 15349, 15392, 15445, 15494, 15618, 15825, 16348, 16365, 17470, 17489, 17531, 17688, 17700, 19739, 22619, 22630, 22926, 22950, 27699, 29092, 29126, 29149, 30741, 30978
+
+
+Kategorie modyfikacji (skrypt 01-align-to-kjv-verses-structure.py):
+
+1) merge last verse to pre-last [end <-] (usunięcie i przeniesienie ostatniego weresetu/linii do poprzedniej linii)
+3237 03-lev/16.txt
+3472 03-lev/24.txt
+7778 09-reg/20.txt
+64-joh/01.txt
+
+podobne (tylko inny werset):
+
+4) 43 i 44 razem (przeniesienie 44. do 43. + spacja)
+9538 11-reg/22.txt 
+
+5) połączenie 2 pierwszych linii w jedną (pamiętać o spacji)
+19-psa/003.txt
+19-psa/004.txt
+19-psa/005.txt
+19-psa/006.txt
+19-psa/007.txt
+19-psa/008.txt
+19-psa/009.txt
+19-psa/012.txt
+19-psa/013.txt
+19-psa/014.txt
+19-psa/018.txt
+19-psa/019.txt
+19-psa/020.txt
+19-psa/021.txt
+19-psa/022.txt
+19-psa/030.txt
+19-psa/031.txt
+19-psa/034.txt
+19-psa/036.txt
+19-psa/038.txt
+19-psa/039.txt
+19-psa/040.txt
+19-psa/041.txt
+19-psa/042.txt
+19-psa/044.txt
+19-psa/045.txt
+19-psa/046.txt
+19-psa/047.txt
+19-psa/048.txt
+19-psa/049.txt
+19-psa/053.txt
+19-psa/055.txt
+19-psa/056.txt
+19-psa/057.txt
+19-psa/058.txt
+19-psa/059.txt
+19-psa/061.txt
+19-psa/062.txt
+19-psa/063.txt
+19-psa/064.txt
+19-psa/065.txt
+19-psa/067.txt
+19-psa/068.txt
+19-psa/069.txt
+19-psa/070.txt
+19-psa/075.txt
+19-psa/076.txt
+19-psa/077.txt
+19-psa/080.txt
+19-psa/081.txt
+19-psa/083.txt
+19-psa/084.txt
+19-psa/085.txt
+19-psa/088.txt
+19-psa/089.txt
+19-psa/092.txt
+19-psa/102.txt
+19-psa/108.txt
+19-psa/140.txt
+19-psa/142.txt
+
+
+
+inne:
+połączenie 3 pierwszych linii w jedną:
+19-psa/051.txt
+19-psa/052.txt
+19-psa/054.txt
+19-psa/060.txt
+
+koniec podobnej grupy
+--------
+
+
+3) first current -> prev end (przeniesienie pierwszej linii/weresetu do ostatniej linii/wersetu poprzedniego pliku)
+4077 04-num/13.txt
+4650 04-num/30.txt
+7842 09-reg/24.txt
+32-ion/02.txt
+37-agg/02.txt
+
+3a) przenieść pierwsze 3 wersety na koniec poprzedniego pliku (38.txt):
+13836 18-iob/39.txt
+
+------
+
+4) end -> next begin; n ostatnich wersetow do początku następnego pliku (dodanie n linii na początku):
+21-ecc/04.txt n = 1
+22-can/05.txt n = 1
+18-iob/36.txt n = 1
+18-iob/39.txt n = 5
+18-iob/40.txt n = 9
+
+4a) podobne - to samo co 4) ale połączy z istniejącą 1 linią (dodanie na początku):
+21-ecc/07.txt (n = 1)
+66-apo/12.txt (n = 1)
+
+------
+
+
+/**** Inne - grupa podobnych do siebie: ****/
+Przygotowane aby działały tak samo dla 1632 i 1879. (sprawdzić czy poprawnie modyfikuje 1632)
+
+5) wstawić nową linię po pierwszym wystąpieniu ": " w linii 30. Dodatkowo usunąć z ": " spację.
+24-ier/29.txt
+
+6) to samo ale po wystąpieniu kropki w linii 11:
+47-cor/13.txt
+
+7) po niżej wymienionej frazie, resztę tekstu z ostatniej linii przenieś do nowej następnej linii, wraz z tą frazą, zamieniając wyraz we frazie na pisany z dużej litery. Dodatkowo usunąć spację będącą przed frazą.
+19-psa/013.txt przed "będę" wstaw nową linię
+47-cor/11.txt przed "alem" wstaw nową linię, nie bierz pod uwagę wielkości liter słowa "alem"
+
+8) w ostatniej linii po wystąpieniu ". " lub ": " resztę tekstu przenieść do nowej następnej linii. Dodatkowo usunąć spację z ". " lub ": ".
+48-gal/01.txt
+
+9) to samo co 8) ale po wystąpieniu ". ":
+44-act/19.txt
+
+======================================================
+
+Liczba wersetow w zależności od tłumaczenia lub rewizji:
+31,102 KJV
+31,171 PBG_1879
+31,172 PBG_1632*
+
+* - ze względu na trwającą digitalizację (stan na 06.2025) liczba wersetow może ulec zmianie.
+
+============================
+
+Do końca pieśni nad pieśniami
+
+31 + 25 + 24 + 26 + 32 + 22 + 24 + 22 + 29 + 32 + 32 + 20 + 18 + 24 + 21 + 16 + 27 + 33 + 38 + 18 + 34 + 24 + 20 + 67 + 34 + 35 + 46 + 22 + 35 + 43 + 55 + 32 + 20 + 31 + 29 + 43 + 36 + 30 + 23 + 23 + 57 + 38 + 34 + 34 + 28 + 34 + 31 + 22 + 33 + 26 + 22 + 25 + 22 + 31 + 23 + 30 + 29 + 28 + 35 + 29 + 10 + 51 + 22 + 31 + 27 + 36 + 16 + 27 + 25 + 26 + 37 + 30 + 33 + 18 + 40 + 37 + 21 + 43 + 46 + 38 + 18 + 35 + 23 + 35 + 35 + 38 + 29 + 31 + 43 + 38 + 17 + 16 + 17 + 35 + 26 + 23 + 38 + 36 + 24 + 20 + 47 + 8 + 59 + 57 + 33 + 34 + 16 + 30 + 37 + 27 + 24 + 33 + 44 + 23 + 55 + 46 + 34 + 54 + 34 + 51 + 49 + 31 + 27 + 89 + 26 + 23 + 36 + 35 + 16 + 33 + 45 + 41 + 35 + 28 + 32 + 22 + 29 + 35 + 41 + 30 + 25 + 18 + 65 + 23 + 31 + 39 + 17 + 54 + 42 + 56 + 29 + 34 + 13 + 46 + 37 + 29 + 49 + 33 + 25 + 26 + 20 + 29 + 22 + 32 + 31 + 19 + 29 + 23 + 22 + 20 + 22 + 21 + 20 + 23 + 29 + 26 + 22 + 19 + 19 + 26 + 69 + 28 + 20 + 30 + 52 + 29 + 12 + 18 + 24 + 17 + 24 + 15 + 27 + 26 + 35 + 27 + 43 + 23 + 24 + 33 + 15 + 63 + 10 + 18 + 28 + 51 + 9 + 45 + 34 + 16 + 33 + 36 + 23 + 31 + 24 + 31 + 40 + 25 + 35 + 57 + 18 + 40 + 15 + 25 + 20 + 20 + 31 + 13 + 31 + 30 + 48 + 25 + 22 + 23 + 18 + 22 + 28 + 36 + 21 + 22 + 12 + 21 + 17 + 22 + 27 + 27 + 15 + 25 + 23 + 52 + 35 + 23 + 58 + 30 + 24 + 42 + 15 + 23 + 29 + 22 + 44 + 25 + 12 + 25 + 11 + 31 + 13 + 27 + 32 + 39 + 12 + 25 + 23 + 29 + 18 + 13 + 19 + 27 + 31 + 39 + 33 + 37 + 23 + 29 + 33 + 43 + 26 + 22 + 51 + 39 + 25 + 53 + 46 + 28 + 34 + 18 + 38 + 51 + 66 + 28 + 29 + 43 + 33 + 34 + 31 + 34 + 34 + 24 + 46 + 21 + 43 + 29 + 53 + 18 + 25 + 27 + 44 + 27 + 33 + 20 + 29 + 37 + 36 + 20 + 21 + 25 + 29 + 38 + 20 + 41 + 37 + 37 + 21 + 26 + 20 + 37 + 20 + 30 + 54 + 55 + 24 + 43 + 26 + 81 + 40 + 40 + 44 + 14 + 47 + 40 + 14 + 17 + 29 + 43 + 27 + 17 + 19 + 8 + 30 + 19 + 32 + 31 + 31 + 32 + 34 + 21 + 30 + 17 + 18 + 17 + 22 + 14 + 42 + 22 + 18 + 31 + 19 + 23 + 16 + 23 + 14 + 19 + 14 + 19 + 34 + 11 + 37 + 20 + 12 + 21 + 27 + 28 + 23 + 9 + 27 + 36 + 27 + 21 + 33 + 25 + 33 + 27 + 23 + 11 + 70 + 13 + 24 + 17 + 22 + 28 + 36 + 15 + 44 + 11 + 20 + 32 + 23 + 19 + 19 + 73 + 18 + 38 + 39 + 36 + 47 + 31 + 22 + 23 + 15 + 17 + 14 + 14 + 10 + 17 + 32 + 3 + 22 + 13 + 26 + 21 + 27 + 30 + 21 + 22 + 35 + 22 + 20 + 25 + 28 + 22 + 35 + 22 + 16 + 21 + 29 + 29 + 34 + 30 + 17 + 25 + 6 + 14 + 23 + 28 + 25 + 31 + 40 + 22 + 33 + 37 + 16 + 33 + 24 + 41 + 30 + 24 + 34 + 17 + 6 + 12 + 8 + 8 + 12 + 10 + 17 + 9 + 20 + 18 + 7 + 8 + 6 + 7 + 5 + 11 + 15 + 50 + 14 + 9 + 13 + 31 + 6 + 10 + 22 + 12 + 14 + 9 + 11 + 12 + 24 + 11 + 22 + 22 + 28 + 12 + 40 + 22 + 13 + 17 + 13 + 11 + 5 + 26 + 17 + 11 + 9 + 14 + 20 + 23 + 19 + 9 + 6 + 7 + 23 + 13 + 11 + 11 + 17 + 12 + 8 + 12 + 11 + 10 + 13 + 20 + 7 + 35 + 36 + 5 + 24 + 20 + 28 + 23 + 10 + 12 + 20 + 72 + 13 + 19 + 16 + 8 + 18 + 12 + 13 + 17 + 7 + 18 + 52 + 17 + 16 + 15 + 5 + 23 + 11 + 13 + 12 + 9 + 9 + 5 + 8 + 28 + 22 + 35 + 45 + 48 + 43 + 13 + 31 + 7 + 10 + 10 + 9 + 8 + 18 + 19 + 2 + 29 + 176 + 7 + 8 + 9 + 4 + 8 + 5 + 6 + 5 + 6 + 8 + 8 + 3 + 18 + 3 + 3 + 21 + 26 + 9 + 8 + 24 + 14 + 10 + 8 + 12 + 15 + 21 + 10 + 20 + 14 + 9 + 6 + 33 + 22 + 35 + 27 + 23 + 35 + 27 + 36 + 18 + 32 + 31 + 28 + 25 + 35 + 33 + 33 + 28 + 24 + 29 + 30 + 31 + 29 + 35 + 34 + 28 + 28 + 27 + 28 + 27 + 33 + 31 + 18 + 26 + 22 + 16 + 20 + 12 + 29 + 17 + 18 + 20 + 10 + 14 + 17 + 17 + 11 + 16 + 16 + 13 + 13 + 14 + 31 + 22 + 26 + 6 + 30 + 13 + 25 + 22 + 21 + 34 + 16 + 6 + 22 + 32 + 9 + 14 + 14 + 7 + 25 + 6 + 17 + 25 + 18 + 23 + 12 + 21 + 13 + 29 + 24 + 33 + 9 + 20 + 24 + 17 + 10 + 22 + 38 + 22 + 8 + 31 + 29 + 25 + 28 + 28 + 25 + 13 + 15 + 22 + 26 + 11 + 23 + 15 + 12 + 17 + 13 + 12 + 21 + 14 + 21 + 22 + 11 + 12 + 19 + 12 + 25 + 24 + 19 + 37 + 25 + 31 + 31 + 30 + 34 + 22 + 26 + 25 + 23 + 17 + 27 + 22 + 21 + 21 + 27 + 23 + 15 + 18 + 14 + 30 + 40 + 10 + 38 + 24 + 22 + 17 + 32 + 24 + 40 + 44 + 26 + 22 + 19 + 32 + 21 + 28 + 18 + 16 + 18 + 22 + 13 + 30 + 5 + 28 + 7 + 47 + 39 + 46 + 64 + 34 + 22 + 22 + 66 + 22 + 22 + 28 + 10 + 27 + 17 + 17 + 14 + 27 + 18 + 11 + 22 + 25 + 28 + 23 + 23 + 8 + 63 + 24 + 32 + 14 + 49 + 32 + 31 + 49 + 27 + 17 + 21 + 36 + 26 + 21 + 26 + 18 + 32 + 33 + 31 + 15 + 38 + 28 + 23 + 29 + 49 + 26 + 20 + 27 + 31 + 25 + 24 + 23 + 35 + 21 + 49 + 30 + 37 + 31 + 28 + 28 + 27 + 27 + 21 + 45 + 13 + 11 + 23 + 5 + 19 + 15 + 11 + 16 + 14 + 17 + 15 + 12 + 14 + 16 + 9 + 20 + 32 + 21 + 15 + 16 + 15 + 13 + 27 + 14 + 17 + 14 + 15 + 21 + 17 + 10 + 10 + 11 + 16 + 13 + 12 + 13 + 15 + 16 + 20 + 15 + 13 + 19 + 17 + 20 + 19 + 18 + 15 + 20 + 15 + 23 + 21 + 13 + 10 + 14 + 11 + 15 + 14 + 23 + 17 + 12 + 17 + 14 + 9 + 21 + 14 + 17 + 18 + 6 + 25 + 23 + 17 + 25 + 48 + 34 + 29 + 34 + 38 + 42 + 30 + 50 + 58 + 36 + 39 + 28 + 27 + 35 + 30 + 34 + 46 + 46 + 39 + 51 + 46 + 75 + 66 + 20 + 45 + 28 + 35 + 41 + 43 + 56 + 37 + 38 + 50 + 52 + 33 + 44 + 37 + 72 + 47 + 20 + 80 + 52 + 38 + 44 + 39 + 49 + 50 + 56 + 62 + 42 + 54 + 59 + 35 + 35 + 32 + 31 + 37 + 43 + 48 + 47 + 38 + 71 + 56 + 53 + 51 + 25 + 36 + 54 + 47 + 71 + 53 + 59 + 41 + 42 + 57 + 50 + 38 + 31 + 27 + 33 + 26 + 40 + 42 + 31 + 25 + 26 + 47 + 26 + 37 + 42 + 15 + 60 + 40 + 43 + 48 + 30 + 25 + 52 + 28 + 41 + 40 + 34 + 28 + 41 + 38 + 40 + 30 + 35 + 27 + 27 + 32 + 44 + 31 + 32 + 29 + 31 + 25 + 21 + 23 + 25 + 39 + 33 + 21 + 36 + 21 + 14 + 23 + 33 + 27 + 31 + 16 + 23 + 21 + 13 + 20 + 40 + 13 + 27 + 33 + 34 + 31 + 13 + 40 + 58 + 24 + 24 + 17 + 18 + 18 + 21 + 18 + 16 + 24 + 15 + 18 + 33 + 21 + 14 + 24 + 21 + 29 + 31 + 26 + 18 + 23 + 22 + 21 + 32 + 33 + 24 + 30 + 30 + 21 + 23 + 29 + 23 + 25 + 18 + 10 + 20 + 13 + 18 + 28 + 12 + 17 + 18 + 20 + 15 + 16 + 16 + 25 + 21 + 18 + 26 + 17 + 22 + 16 + 15 + 15 + 25 + 14 + 18 + 19 + 16 + 14 + 20 + 28 + 13 + 28 + 39 + 40 + 29 + 25 + 27 + 26 + 18 + 17 + 20 + 25 + 25 + 22 + 19 + 14 + 21 + 22 + 18 + 10 + 29 + 24 + 21 + 21 + 13 + 14 + 25 + 20 + 29 + 22 + 11 + 14 + 17 + 17 + 13 + 21 + 11 + 19 + 17 + 18 + 20 + 8 + 21 + 18 + 24 + 21 + 15 + 27 + 21
+
+
+
+
+
+
+
+
+
+===========================================
+
+3237: I uczynił Mojżesz, jako mu był rozkazał Pan.
+3472: I uczynili synowie Izraelscy według tego, jako przykazał Pan Mojżeszowi.
+4077: I wyłączona była Maryja z obozu przez siedm dni; a lud się nie ruszył, aż była Maryja przyjęta.
+4111: Tameśmy też widzieli olbrzymy, syny Enakowe z rodu olbrzymow; i zdaliśmy się sobie przy nich jako szarańcza, takimiż zdaliśmy się i onym.
+4650: To ofiarować będziecie Panu w święta uroczyste wasze, oprocz ślubow waszych i dobrowolnych ofiar waszych w całopaleniach waszych, i w śniednych ofiarach waszych, i w mokrych ofiarach waszych, i w spokojnych ofiarach waszych.
+4667: Teć są ustawy, ktore przykazał Pan Mojżeszowi, między mężem a żoną jego, między ojcem a corką jego w młodości jej, poki jest w domu ojca swego.
+7566: Przetoż idź, i pobij Amaleka, i wytrać jako przeklęte wszystko, co ma; nie folguj mu, ale wybij od męża aż do niewiasty, od małego aż do ssącego, od wołu aż do owcy, od wielbłąda aż do osła.
+7598: A już potem więcej Samuel nie widział Saula, aż do dnia śmierci swojej: wszakże żałował Samuel Saula, a Pan też żałował, że uczynił krolem Saula nad Izraelem.
+7778: I odpowiedział Dawid Achimelechowi kapłanowi: Rozkazał mi krol nieco, i rzekł do mnie: Niech nikt nie wie tego, po co cię posyłam, i com ci zlecił, przetożem sługi zostawił na pewnem miejscu.
+7842: Przetoż wrocił się Saul od pogoni za Dawidem, a ciągnął przeciw Filistynom; dla tego nazwali miejsce ono Sela Hammalekot.
+7866: W tem umarł Samuel. A zebrawszy się wszyscy Izraelczycy, płakali go, i pogrzebli go w domu jego w Ramacie. Tedy wstawszy Dawid, poszedł na puszczą Faran.
+8359: A Absalom uciekł, i przyszedł do Giessur, a był tam przez trzy lata.
+9538: Służył także Baalowi, a kłaniał mu się, i pobudzał do gniewu Pana, Boga Izraelskiego, według wszystkiego, co czynił ojciec jego.
+10563: Potem wszedł do żony swej, ktora poczęła i porodziła syna, i nazwał imię jego Beryja, przeto iż się urodził w utrapieniu domu jego.
+10580: Ci wszyscy są synowie Aserowi, książęta domow rodzajow swych, wybrani i duży mężowie, przedniejsi z książąt, ktorzy policzeni są na wojnę do bitwy; poczet tych mężow dwadzieścia i sześć tysięcy.
+12039: Synow Elamowych tysiąc dwieście pięćdziesiąt i cztery;
+12102: A tak osadzili się kapłani i Lewitowie, i niektorzy z ludu, i śpiewacy, i odźwierni, i Netynejczycy w miastach swych, i wszystek Izrael w miastach swych.
+13775: A nad tem zdumiewa się serce moje, i porusza się z miejsca swego.
+13798: Przetoż boją się go ludzie; nie ma względu na żadnego, by też był i najmędrszy.
+13836: Aby polany proch stężał, a bryły aby się społu zelgnęły?
+13866: Izali na twoje rozkazanie wzbija się orzeł w gorę, i składa na wysokich miejscach gniazdo swoje?
+13898: Izali z nim będziesz igrał jako z ptaszkiem, a uwiążesz go dziatkom twoim?
+13927: Wszelką rzecz wysoką lekce waży; on jest krolem nad wszystkiemi srogiemi zwierzętami.
+13971: Od Panać jest wybawienie, a nad ludem twoim błogosławieństwo twoje. Sela.
+13980: W pokoju się i położę i zasnę, bo ty sam, Panie! czynisz, że bezpiecznie mieszkam.
+13993: Albowiem ty, Panie! sprawiedliwemu błogosławić będziesz, a zastawisz go, jako tarczą, dobrotliwością twoją.
+14004: Niech się zawstydzą i bardzo zatrwożą wszyscy nieprzyjaciele moi; niech tył podadzą, a niech prędko pohańbieni będą.
+14022: Będę wysławiał Pana według sprawiedliwości jego, a będę śpiewał imieniowi Pana najwyższego.
+14032: Panie, Panie nasz! jako zacne jest imię twoje po wszystkiej ziemi!
+14053: Panie! puść na nie strach, aby poznały narody, iż są ludźmi śmiertelnymi. Sela.
+14087: Ze wszystkich stron niepobożni krążą, gdy wywyższeni bywają najpodlejsi między synami ludzkimi.
+14101: Ktoż da z Syonu wybawienie Izraelowi? Gdyż zasię wyprowadzi Pan z więzienia lud swoj; rozraduje się Jakob, a Izrael się rozweseli.
+14183: Boś zacnie wybawił krola swego, a czynisz miłosierdzie pomazańcowi swemu Dawidowi, i nasieniu jego, aż na wieki.
+14198: Niechże będą przyjemne słowa ust moich, i rozmyślanie serca mego przed obliczem twojem, Panie, skało moja, i odkupicielu moj!
+14208: Panie! ty nas zachowaj, a krol nas niech wysłucha w dzień wołania naszego.
+14222: Podnieśże się, Panie! w mocy twojej, tedy będziemy śpiewać i wysławiać możność twoję.
+14254: Zbieżą się, a będą opowiadali sprawiedliwość jego narodowi, ktory z nich wynijdzie, iż ją on wykonał.
+14351: Przetoż tobie śpiewać będzie chwała moja, a milczeć nie będzie. Panie, Boże moj! na wieki wysławiać cię będę.
+14376: Zmacniajcie się (a posili Bog serca wasze) wszyscy, ktorzy nadzieję macie w Panu.
+14432: Ale Pan odkupi duszę sług swoich, a nie będą spustoszeni wszyscy, ktorzy w nim ufają.
+14473: Tam, gdzie upadli, ktorzy czynili nieprawość, porażeni są, i nie mogli powstać.
+14536: Pospiesz na ratunek moj, Panie zbawienia mego!
+14550: Sfolguj mi, abym się posilił, pierwej niżeli odejdę, a nie będzie mię.
+14568: Jamci wprawdzie ubogi i nędzny; aleć Pan myśli o mnie. Tyś jest pomocnikiem moim i wybawicielem moim; Boże moj! nie omieszkujże.
+14582: Błogosławiony Pan, Bog Izraelski, od wieku aż na wieki. Amen, Amen.
+14594: Przeczże się smucisz, duszo moja? a przecz sobą trwożysz we mnie? Czekaj na Boga; albowiem go jeszcze będę wysławiał, gdyż on jest wielkiem zbawieniem twarzy mojej, i Bogiem moim.
+14626: Powstańże na ratunek nasz, a odkup nas dla miłosierdzia twego.
+14644: Wspominać będę imię twoje od każdego rodzaju do rodzaju: dlatego cię narody wysławiać będą na wieki wiekow.
+14656: Pan zastępow z nami; twierdzą wysoką jest nam Bog Jakobowy. Sela.
+14666: Książęta narodow przyłączyli się do ludu Boga Abrahamowego; albowiem Boże są tarcze ziemskie; skąd on zacnie jest wywyższony.
+14681: Że ten Bog jest Bogiem naszym na wieki wieczne, a iż on naszym hetmanem będzie aż do śmierci.
+14702: Owoż człowiek, ktory jest we czci, a nie zrozumiewa tego, podobny jest bydlętom, ktore giną.
+14745: Dobrze uczyń według upodobania twego Syonowi; pobuduj mury Jeruzalemskie.
+14756: Aleć ja będę jako oliwa zielona w domu Bożym, bom nadzieję położył w miłosierdziu Bożem na wieki wieczne.
+14764: Ktoż da z Syonu wybawienie Izraelowi? Gdy Bog przywroci z więzienia lud swoj, rozraduje się Jakob, rozweseli się Izrael.
+14772: Tedyć dobrowolnie będę ofiarował; będę wysławiał imię twoje, Panie! przeto, że jest dobre;
+14797: Ale ich ty, o Boże! wepchniesz w doł zginienia; mężowie krwawi i zdradliwi nie dojdą do połowy dni swoich; ale ja w tobie nadzieję mieć będę.
+14811: Albowiemeś wyrwał duszę moję od śmierci, a nogi moje od upadku, abym statecznie chodził przed obliczem Bożem w światłości żyjących.
+14823: Wywyżże się nad niebiosa, o Boże! a nade wszystką ziemię wywyż chwałę twoję.
+14835: I rzecze każdy: Zaprawdęć sprawiedliwy odniesie pożytek z sprawiedliwości swojej; zaisteć jest Bog, ktory sądzi na ziemi.
+14853: O mocy moja! tobie będę śpiewał; boś ty, Boże! twierdza moja, Bog moj miłosierny.
+14866: Dajże nam ratunek w utrapieniu; boć omylny ratunek ludzki.
+14876: Tak będę śpiewał imieniowi twemu na wieki, a śluby moje oddawać będę na każdy dzień.
+14889: A że Panie! twoje jest miłosierdzie, a że ty oddasz każdemu według uczynkow jego.
+14901: Lecz krol będzie się weselił w Bogu, a będzie się chlubił każdy, kto przezeń przysięga; albowiem zatkane będą usta mowiących kłamstwo.
+14912: Ale sprawiedliwy się będzie weselił w Panu, a będzie w nim ufał; i będą się chlubili wszyscy, ktorzy są uprzejmego serca.
+14926: Przyodziewają się pola stadami owiec, a doliny okrywają się zbożem; tak, że wykrzykają i śpiewają.
+14954: Niech nam błogosławi Bog, a niech się go boją wszystkie kraje ziemi.
+14990: Strasznyś jest, o Boże! z świętych przybytkow twoich; Bog Izraelski sam daje moc i siły ludowi swemu. Niechajże będzie Bog błogosławiony.
+15028: Przedniejszemu śpiewakowi psalm Dawidowy na wspominanie.
+15033: Jamci nędzny i ubogi; o Boże! pospiesz się ku mnie; tyś jest pomocą moją, i wybawicielem moim! Panie! nie omieszkujże.
+15139: A wszystkie rogi niezbożnikom postrącam; ale rogi sprawiedliwego będą wywyższone.
+15152: Onci odejmuje ducha książętom, a on jest na postrach krolom ziemskim.
+15174: Pieśń wyuczająca, podana Asafowi. Słuchaj, ludu moj! zakonu mego; nakłońcież uszow swych do słow ust moich.
+15278: O Panie, Boże zastępow! nawroćże nas zasię; rozjaśnij nad nami oblicze twoje, a będziemy zbawieni.
+15295: I karmiłbym ich tłustością pszenicy, a miodem z opoki nasyciłbym ich.
+15322: A tak niech poznają, żeś ty, ktorego imię jest Pan, tyś sam Najwyższym nad wszystką ziemią.
+15335: Panie zastępow! błogosławiony człowiek, ktory ma nadzieję w tobie.
+15349: Sprawi, że sprawiedliwość przed twarzą jego pojdzie, gdy postawi na drodze nogi swoje.
+15392: Oddaliłeś odemnie przyjaciela i towarzysza, a znajomym moim jestem jako w ciemności.
+15445: Niech będzie błogosławiony Pan aż na wieki. Amen, Amen.
+15494: Aby to opowiadano, że uprzejmym jest Pan, skała moja, a że w nim nie masz żadnej nieprawości.
+15618: Synowie sług twoich u ciebie mieszkać będą, a nasienie ich zmocni się przed tobą.
+15825: W Bogu sobie mężnie poczynać będziemy, a on podepcze nieprzyjacioł naszych.
+16348: Pieśń Dawidowa. Panie! wołam do ciebie, pospiesz się do mnie: posłuchaj głosu mego, gdy wołam do ciebie.
+16365: Wywiedźże z ciemnicy duszę moję, abym chwalił imię twoje; obstąpią mię sprawiedliwi, gdy mi dobrodziejstwo uczynisz.
+17470: Strzeż nogi twojej, gdy idziesz do domu Bożego, a bądź skłonniejszym ku słuchaniu, niżeli ku dawaniu ofiar ludzi głupich; boć oni nie wiedzą, że źle czynią.
+17489: Bo nie będzie wiele pamiętał na dni żywota swego; przeto, że mu Bog życzy wesela serca jego.
+17531: Ktoż może z mądrym porownać? a kto może wyłożyć każdą rzecz?
+17688: Gdzież poszedł miły twoj, o najpiękniejsza między niewiastami? Gdzie się obrocił miły twoj? a szukać go będziemy z tobą.
+17700: Nawroć się, nawroć się, o Sulamitko! nawroć się, nawroć się, niech na cię patrzymy. Coż widzicie na Sulamitce? Widzimy, jakoby hufy wojenne.
+19739: Przetoż tak mowi Pan: Oto Ja nawiedzę Semejasza Nechalamitczyka i nasienie jego; nie będzie miał nikogo, ktoby mieszkał w pośrodku ludu tego, ani ogląda tego dobra, ktore Ja uczynię ludowi swemu, mowi Pan; bo radził, aby odstąpił lud od Pana.
+22619: Bali się tedy mężowie strachem wielkim Pana, i ofiarowali ofiarę Panu, i śluby czynili.
+22630: I rozkazał Pan onej rybie, a wyrzuciła Jonasza na brzeg.
+22926: Wtem wzbudził Pan ducha Zorobabela, syna Salatyjelowego, książęcia Judzkiego, i ducha Jesuego, syna Jozedekowego, kapłana najwyższego, i ducha ostatkow wszystkiego ludu, że przyszedłszy robili około domu Pana zastępow, Boga swego.
+22950: W on dzień, mowi Pan zastępow, wezmę cię, Zorobabelu, synu Salatyjelowy, sługo moj! mowi Pan, i uczynię cię jako sygnet; albowiem wybrałem cię, mowi Pan zastępow.
+	?? 27699: A przeszedłszy one strony, i napomniawszy je szerokiemi słowy, przyszedł do Grecyi.
+29092: W Damaszku hetman ludu krola Arety, osadził był strażą miasto Damaszek, chcąc mię pojmać; alem oknem po powrozie w koszyku przez mur był spuszczony, i uszedłem rąk jego.
+29126: Łaska Pana Jezusa Chrystusa, i miłość Boża, i społeczność Ducha Świętego niech będzie z wami wszystkimi. Amen.
+29149: Lecz tylko byli usłyszeli, iż ten, ktory prześladował nas niekiedy, teraz opowiada wiarę, ktorą przedtem burzył. I chwalili Boga ze mnie.
+30741: Pokoj tobie. Pozdrawiają cię przyjaciele. Pozdrow i ty przyjacioł z imienia.
+30978: I stanąłem na piasku morskim.
+
