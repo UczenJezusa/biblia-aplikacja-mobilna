@@ -1,4 +1,4 @@
-Kategorie modyfikacji (skrypt 01-align-to-kjv-verses-structure.py):
+Kategorie modyfikacji (skrypt 01_kjv_verse_align.py):
 
 1) merge last verse to pre-last [end <-] (usunięcie i przeniesienie ostatniego weresetu/linii do poprzedniej linii)
 3237 03-lev/16.txt

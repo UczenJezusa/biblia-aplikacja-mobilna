@@ -3,8 +3,8 @@ from pathlib import Path
 # UWAGA
 # description ma 296 343 nie białych znaków
 # przy zmianie opisu należy ponownie policzyć liczbę nie białych znaków
-# przy pomocy skryptu licz_ilosc_znakow_bez_bialych_znakow.py
-# oraz uwzględnić ją w pliku test_nie_upadl_zaden_znak.py
+# przy pomocy skryptu count_non_whitespace_chars.py
+# oraz uwzględnić ją w pliku test_none_of_the_characters_fell.py
 description = (
     "description=Polska Biblia Gdańska 1879\n"
     "short.title=PBG\n"
