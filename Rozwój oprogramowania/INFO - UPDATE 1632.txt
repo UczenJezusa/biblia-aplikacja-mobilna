@@ -1,9 +1,9 @@
 Aby skrypty poprawnie działały dla tekstu z 1632 roku, muszą być wprowadzone poniższe poprawki w projekcie digitalizacji:
 - Ozeasz.10,5. usuwający zbublowaną linię tekstu.
-- przydałoby się mieć dobrze otagowany tekst pisany kursywą (skrypt 1632-01-poprawa-kursywy wskaże czy są jakieś problemy)
-- do zmiany opis biblii (tworzony na końcu pliku wyjściowego; za pomocą skryptu 02-create-the-word-bible-file.py)
+- przydałoby się mieć dobrze otagowany tekst pisany kursywą (skrypt 1632_01_fix_italics wskaże czy są jakieś problemy)
+- do zmiany opis biblii (tworzony na końcu pliku wyjściowego; za pomocą skryptu 02_generate_ont_file.py)
 - przed uruchomieniem skryptów uruchomić inne skrypty?.
 
 Mimo to dodać poniższą notę do instrukcji:
 
-Ze względu na trwającą digitalizację (stan na 06.2025) liczba wersetow może ulec zmianie. Jeśli liczba wersetow wyjściowego pliku *.ont będzie rożna od KJV (31 102) to znaczy że program nie działa prawidłowo i należy z niego nie korzystać, bądź naprawić błąd - w celach diagnostycznych, znalezienia miejsca np. nadmiarowych wersetow mogą pomóc programy "The word" i "WinMerge", film na youtube https://www.youtube.com/watch?v=jPupNk5u864. Potem z pewnością będzie wymagana zmiana w kodzie skryptu 01-align-to-kjv-verses-structure.py.
+Ze względu na trwającą digitalizację (stan na 06.2025) liczba wersetow może ulec zmianie. Jeśli liczba wersetow wyjściowego pliku `*.ont` będzie rożna od KJV (31 102) to znaczy że program nie działa prawidłowo i należy z niego nie korzystać, bądź naprawić błąd - w celach diagnostycznych, znalezienia miejsca np. nadmiarowych wersetow mogą pomóc programy "The word" i "WinMerge", film na youtube https://www.youtube.com/watch?v=jPupNk5u864. Potem z pewnością będzie wymagana zmiana w kodzie skryptu 01_kjv_verse_align.py.

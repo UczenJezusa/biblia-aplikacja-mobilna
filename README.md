@@ -14,8 +14,8 @@ UWAGA!<br>
 Aktualnie niniejsza instrukcja działa tylko dla tekstu z rewizji z 1879 roku. Informacje o możliwym prawidłowym działaniu w przyszłości dla tekstu z 1632 roku można znaleźć w pliku `INFO - UPDATE 1632.txt` w katalogu `Rozwój oprogramowania`.
 
 Stworzenie pliku biblii dla współczesnej rewizji będzie najbardziej zbliżone do tworzenia pliku na bazie tekstu z 1632 roku. Lista rzeczy które należy zmienić w oprogramowaniu dla pliku biblii z 1632 roku tak, aby wyjściowy plik był poprawnie tworzony dla współczesnego wydania, obejmuje np.:
-- zmiany w skrypcie `01-align-to-kjv-verses-structure.py` (szczegóły niżej),
-- nie używanie skryptu `1632-02-ortografia.py`.
+- zmiany w skrypcie `01_kjv_verse_align.py` (szczegóły niżej),
+- nie używanie skryptu `1632_02_orthography.py`.
 
 Poniżej znajduje się instrukcja jak z plików tekstowych biblii uzyskać plik typu The Word z rozszerzeniem `.ont`, kompatybilny z biblijnymi aplikacjami mobilnymi. Uzyskany plik można udostępnić moderatorom aplikacji mobilnych (np. kontakt poprzez wiadomość email; dla wordproject.org same pliki tekstowe biblii są wystarczające). Dzięki temu można w prosty i szybki sposób zaktualizować cały tekst biblii dostępny w aplikacji mobilnej.
 
@@ -67,7 +67,7 @@ Można używać klawisza `Tab` do łatwego uzupełniania niepełnej nazwy folder
 - Poprawa kursywy oraz ortografia:
 W terminalu uruchomić polecenie (wklej poniższy tekst do terminala PowerShell i naciśnij Enter):
 ```powershell
-python .\1632-01-poprawa-kursywy.py
+python .\1632_01_fix_italics.py
 ```
 
 Jeśli pojawi się komunikat `Wykryto n bledow tagowania`, należy poprawić ręcznie podane linie tekstu: otworzyć wymieniony w komunikacie plik .txt znaleźć stosowną linię, porównać z oryginałem skanu (szczegóły: https://github.com/piotrskurzynski/biblia/blob/main/info.md) i nanieść zmianę.
@@ -77,7 +77,7 @@ Dla pewności można uruchomić powyższy skrypt jeszcze raz - powinien pojawić
 
 Uruchomić kolejny skrypt komendą:
 ```powershell
-python .\1632-02-ortografia.py
+python .\1632_02_orthography.py
 ```
 
 Pomyślna modyfikacja jest potwierdzona pokazaniem się komunikatu: `Pomyslnie zmieniono ortografie.`
@@ -87,11 +87,11 @@ Pomyślna modyfikacja jest potwierdzona pokazaniem się komunikatu: `Pomyslnie z
 
 Po przejściu do folderu ze skryptami w terminalu, uruchomić polecenie (wklej poniższy tekst do terminala PowerShell i naciśnij Enter):
 ```powershell
-python .\03-create-original-merged-bible-file.py; if ($?) { python .\01-align-to-kjv-verses-structure.py; if ($?) { python .\02-create-the-word-bible-file.py } }
+python .\03_generate_merged_original_bible_file.py; if ($?) { python .\01_kjv_verse_align.py; if ($?) { python .\02_generate_ont_file.py } }
 ```
 
 UWAGA!
-Niektóre modyfikacje w skrypcie `01-align-to-kjv-verses-structure` zależą od konkretnych znaków w tekście. Zatem przy pracy nad tekstem rewizji współczesnej (nie 1879 czy 1632, ale 20nn) należy upewnić się czy skrypt poprawnie modyfikuje pliki wymienione na końcu tego pliku*.
+Niektóre modyfikacje w skrypcie `01_kjv_verse_align.py` zależą od konkretnych znaków w tekście. Zatem przy pracy nad tekstem rewizji współczesnej (nie 1879 czy 1632, ale 20nn) należy upewnić się czy skrypt poprawnie modyfikuje pliki wymienione na końcu tego pliku*.
 
 Pomyślna modyfikacja jest wtedy, gdy pojawią się TYLKO napis `Pomyslnie zakonczono modyfikacje i utworzono plik: PBG_the_word.ont.`
 
@@ -104,7 +104,7 @@ Jeśli numeracja się zgadza, warto jeszcze przetestować czy powyższe modyfika
 
 Aby przetestować czy liczba znaków przed i po modyfikacji jest taka sama, należy uruchomić skrypt:
 ```powershell
-python .\test_nie_upadl_zaden_znak.py
+python .\test_none_of_the_characters_fell.py
 ```
 
 Jeśli po wykonaniu skryptu ukazuje się komunikat o identycznej ilości znaków, plik jest gotowy do udostępnienia go moderatorom poszczególnych mobilnych aplikacji biblijnych.
@@ -118,7 +118,7 @@ Więcej szczegółów o tym jak działają skrypty i możliwości ich modyfikacj
 
 
 
-* Lista plików których modyfikacja zależy od konkretnego znaku w tekście. Numeracja odpowiada kategoriom w skrypcie `01-align-to-kjv-verses-structure.py`:
+* Lista plików których modyfikacja zależy od konkretnego znaku w tekście. Numeracja odpowiada kategoriom w skrypcie `01_kjv_verse_align.py`:
 5) wstawić nową linię po pierwszym wystąpieniu ": " w linii 30. Dodatkowo usunąć z ": " spację.
 24-ier/29.txt
 

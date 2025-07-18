@@ -60,7 +60,7 @@ cleaned_content2 = clean_references(content2)
 ############   Kod diagnostyczny początek    ##########################
 # Kod pomocny w celach diagnostycznych.
 # Odkomentuj kod jeśli program zwrócił RÓŻNĄ ilość znaków - potem
-# uruchom skrypt ktory_znak_rozny.py w celu określenia miejsca różnicy. 
+# uruchom skrypt locate_char_diff.py w celu określenia miejsca różnicy. 
 
 # modified_file2 = "PBG_modified.txt"
 # out1 = "PBG_mod_1.txt"
@@ -88,7 +88,7 @@ cleaned_content2 = clean_references(content2)
 count1 = len(normalize_and_strip(content1))
 count2 = len(normalize_and_strip(cleaned_content2))
 
-description_length = 399 # patrz skrypt 02-create-the-word-bible-file.py
+description_length = 399 # patrz skrypt 02_generate_ont_file.py
 count1 = count1 + description_length
 
 if count1 == count2:
