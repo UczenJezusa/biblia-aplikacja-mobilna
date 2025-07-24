@@ -6,7 +6,7 @@
 
 Ze względu na trwające poprawki w tekście cyfrowym pisma świętego (https://github.com/piotrskurzynski/biblia), sensowność projektu ogranicza się do:
 - aktualizowanie tekstu z wydania 1879 roku np. co rok, dwa lata w aplikacjach mobilnych,
-- czekanie na współczesną rewizję Biblii Gdańskiej, a potem stworzenie finalnego pliku biblii rewizji współczesnej używając niżej opisanych skryptów (możliwe wymagane zmiany w oprogramowaniu w celu prawidłowego działania - więcej informacji niżej).
+- czekanie na współczesną rewizję tekstu Biblii Gdańskiej, a potem stworzenie finalnego pliku biblii używając niżej opisanych skryptów (możliwe wymagane zmiany w oprogramowaniu w celu prawidłowego działania - więcej informacji niżej).
 
 Aby teskt biblii był poprawnie wyświetlany w mobilnych aplikacjach biblijnych (np. `mybible` czy `MySword`) jej sumaryczna ilość linii (wersetów) musi równać się ilości linii biblii King James Version (KJV). Biblia Gdańska oryginalnie ma trochę więcej wersetów. Wyjściowy plik biblii uzyskany po wykonaniu poniższych skryptów, zawiera ilość linii (wersetów) zgodną z KJV.
 
