@@ -4,7 +4,7 @@
 
 **Celem projektu jest umieszczenie współczesnej rewizji tekstu Biblii Gdańskiej w aplikacjach mobilnych oraz portalach internetowych.**
 
-Ze względu na trwające poprawki w tekście cyfrowym pisma świętego (https://github.com/piotrskurzynski/biblia), sensowność projektu ogranicza się do:
+Ze względu na trwające poprawki w [tekście cyfrowym pisma świętego](https://github.com/piotrskurzynski/biblia), sensowność projektu ogranicza się do:
 - aktualizowanie tekstu z wydania 1879 roku np. co rok, dwa lata w aplikacjach mobilnych,
 - czekanie na współczesną rewizję tekstu Biblii Gdańskiej, a potem stworzenie finalnego pliku biblii używając niżej opisanych skryptów (możliwe wymagane zmiany w oprogramowaniu w celu prawidłowego działania - więcej informacji niżej).
 
@@ -23,8 +23,8 @@ Sprawdzone działanie na Windows, lecz nie powinno być problemów z innymi syst
 
 ### 1. Przygotowanie
 
-- Wypakuj plik ZIP "Instrukcja - biblia w aplikacji mobilnej" w wybranym przez siebie folderze. W przypadku czytania tej instrukcji z poziomu platformy GitHub, należy najpierw pobrać pliki zamieszczone na GitHubie z https://github.com/UczenJezusa/biblia-aplikacja-mobilna poprzez wybranie zielonej ikony z napisem `Code` -> `Download ZIP`. Następnie wypakować plik ZIP w wybranym przez siebie folderze.
-- Umieść w wypakowanym folderze (od tej pory nazywany on będzie folderem ze skryptami) folder biblii zawierający pliki tekstowe ze zdalnego repozytorium na Github'ie: https://github.com/piotrskurzynski/biblia - na stronie internetowej pobrać i wypakować plik ZIP analogicznie do opisu wyżej i skopiować folder `1879` lub `1632` do folderu ze skryptami.
+- Wypakuj plik ZIP "Instrukcja - biblia w aplikacji mobilnej" w wybranym przez siebie folderze. W przypadku czytania tej instrukcji z poziomu platformy GitHub, należy najpierw pobrać [pliki zamieszczone na GitHubie](https://github.com/UczenJezusa/biblia-aplikacja-mobilna) poprzez wybranie zielonej ikony z napisem `Code` -> `Download ZIP`. Następnie wypakować plik ZIP w wybranym przez siebie folderze.
+- Umieść w wypakowanym folderze (od tej pory nazywany on będzie folderem ze skryptami) folder biblii zawierający [pliki tekstowe ze zdalnego repozytorium na Github'ie](https://github.com/piotrskurzynski/biblia) - na stronie internetowej pobrać i wypakować plik ZIP analogicznie do opisu wyżej i skopiować folder `1879` lub `1632` do folderu ze skryptami.
 	
 UWAGA 1:<br>
 W danym momencie może znajdować się tylko jeden z wyżej wymienionych folderów w folderze ze skryptami. W przeciwnym przypadku skrypt nie dokona modyfikacji na plikach i wyświetli stosowny komunikat.
@@ -41,8 +41,11 @@ W niniejszym pliku występują fragmenty kodu lub komend oznaczone na początku 
 Są one widoczne w przypadku wyświetlania pliku w programie który nie obsługuje kodowania plików z rozszerzeniem .md, np. w Notatniku czy NotePad++. W przypadku kopiowania takich fragmentów kodu lub komend, należy pominąć, zignorować te oznaczenia.
 
 - Przy pierwszym uruchamianiu skryptu w terminalu PowerShell może być wymagane włączenie możliwości ich uruchamiania w WindowsPowerShell:
-<br>W tym celu uruchom Windows PowerShell jako administrator (żeby znaleźć program można w dolnym pasku, w polu wyszukiwania wpisać frazę `Windows PowerShell`)
-<br>Następnie wprowadź komendę i naciśnij Enter:
+<br>W tym celu uruchom Windows PowerShell jako administrator - żeby znaleźć program można w dolnym pasku systemu Windows, w polu wyszukiwania wpisać frazę:
+```plaintext
+Windows PowerShell
+```
+<br>Następnie w terminalu wprowadź komendę i naciśnij Enter:
 ```powershell
 Set-ExecutionPolicy RemoteSigned
 ```
@@ -76,7 +79,7 @@ Można też używać klawisza `Tab` do łatwego uzupełniania niepełnej nazwy f
 python .\1632_01_fix_italics.py
 ```
 
-Jeśli pojawi się komunikat `Wykryto n bledow tagowania`, należy poprawić ręcznie podane linie tekstu: otworzyć wymieniony w komunikacie plik .txt znaleźć stosowną linię, porównać z oryginałem skanu (szczegóły: https://github.com/piotrskurzynski/biblia/blob/main/info.md) i nanieść zmianę.
+Jeśli pojawi się komunikat `Wykryto n bledow tagowania`, należy poprawić ręcznie podane linie tekstu: otworzyć wymieniony w komunikacie plik .txt znaleźć stosowną linię, porównać z oryginałem skanu [szczegóły tutaj](https://github.com/piotrskurzynski/biblia/blob/main/info.md) i nanieść zmianę.
 <br>Najlepiej dodatkowo od razu zgłosić na podanej stronie internetowej błąd.
 <br>Możliwe że pojawi się więcej komunikatów odnoszących się do tej samej linii tekstu - wówczas wystarczy poprawić tylko tę jedną linię.
 <br>Dla pewności można uruchomić powyższy skrypt jeszcze raz - powinien pojawić się komunikat:`Brak bledow tagowania.` - w takiej sytuacji można przejść do kolejnego kroku:
@@ -122,22 +125,24 @@ Jeśli po wykonaniu skryptu ukazuje się komunikat o identycznej ilości znaków
 
 Więcej szczegółów o tym jak działają skrypty i możliwości ich modyfikacji można znaleźć w poszczególnych skryptach `*.py` w oraz plikach w katalogu `Rozwój oprogramowania`.
 
+Do zrobeienia:
+- dodać test na ilość linii pliku `PBG_the_word.ont` po wykonaniu skryptów z [punktu 3. instrukcji](#3-uzyskanie-pliku-w-formacie-the-word)
 
 
 <br>* Lista plików których modyfikacja zależy od konkretnego znaku w tekście. Numeracja odpowiada kategoriom w skrypcie `01_kjv_verse_align.py`:
 
-5) wstawić nową linię po pierwszym wystąpieniu ": " w linii 30. Dodatkowo usunąć z ": " spację.<br>
+`5)` wstawić nową linię po pierwszym wystąpieniu ": " w linii 30. Dodatkowo usunąć z ": " spację.<br>
 24-ier/29.txt
 
-6) to samo ale po wystąpieniu kropki w linii 11:<br>
+`6)` to samo ale po wystąpieniu kropki w linii 11:<br>
 47-cor/13.txt
 
-7) po niżej wymienionej frazie, resztę tekstu z ostatniej linii przenieś do nowej następnej linii, wraz z tą frazą, zamieniając wyraz we frazie na pisany z dużej litery. Dodatkowo usunąć spację będącą przed frazą.<br>
+`7)` po niżej wymienionej frazie, resztę tekstu z ostatniej linii przenieś do nowej następnej linii, wraz z tą frazą, zamieniając wyraz we frazie na pisany z dużej litery. Dodatkowo usunąć spację będącą przed frazą.<br>
 19-psa/013.txt przed "będę" wstaw nową linię<br>
 47-cor/11.txt przed "alem" wstaw nową linię, nie bierz pod uwagę wielkości liter słowa "alem"
 
-8) w ostatniej linii po wystąpieniu ". " lub ": " resztę tekstu przenieść do nowej następnej linii. Dodatkowo usunąć spację z ". " lub ": ".<br>
+`8)` w ostatniej linii po wystąpieniu ". " lub ": " resztę tekstu przenieść do nowej następnej linii. Dodatkowo usunąć spację z ". " lub ": ".<br>
 48-gal/01.txt
 
-9) to samo co 8) ale po wystąpieniu ". ":<br>
+`9)` to samo co `8)` ale po wystąpieniu ". ":<br>
 44-act/19.txt
