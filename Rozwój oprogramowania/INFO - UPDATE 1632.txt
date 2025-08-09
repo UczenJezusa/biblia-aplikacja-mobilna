@@ -1,5 +1,4 @@
 Aby skrypty poprawnie działały dla tekstu z 1632 roku, muszą być wprowadzone poniższe poprawki w projekcie digitalizacji:
-- Ozeasz.10,5. usuwający zbublowaną linię tekstu.
 - przydałoby się mieć dobrze otagowany tekst pisany kursywą (skrypt 1632_01_fix_italics wskaże czy są jakieś problemy)
 - do zmiany opis biblii (tworzony na końcu pliku wyjściowego; za pomocą skryptu 02_generate_ont_file.py)
 - przed uruchomieniem skryptów uruchomić inne skrypty?.

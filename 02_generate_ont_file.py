@@ -1,13 +1,30 @@
 from pathlib import Path
 
 # UWAGA
-# description ma 296 343 nie białych znaków
+# description_1632 ma 418 nie białych znaków
 # przy zmianie opisu należy ponownie policzyć liczbę nie białych znaków
 # przy pomocy skryptu count_non_whitespace_chars.py
-# oraz uwzględnić ją w pliku test_none_of_the_characters_fell.py
-description = (
+# lub https://www.grammarly.com/character-counter (usuwając znaki """, "\n" oraz z sekcji about "\" ale zostawić """ na końcu i początku treści strony tytułowej biblii) Wynik to wartość w polu "Characters without spaces".
+# Otrzymaną liczbę uwzględnić w pliku test_none_of_the_characters_fell.py
+description_1632 = (
+    "description=Polska Biblia Gdańska 1632\n"
+    "short.title=PBG1632\n"
+    "lang=pol\n"
+    "publish.date=2025\n"
+    "publisher=\n"
+    "version.major=1\n"
+    "version.minor=0.1\n"
+    "source=<a href=\"https://github.com/piotrskurzynski/biblia\">https://github.com/piotrskurzynski/biblia</a>\n"
+    "about=Polska Biblia Gdańska 1632. "
+    "\"Biblia Swięta: to jeſt Księgi Starego y Nowego Przymierza "
+    "z Zydowſkiego y Greckiego Języká ná Polſki pilnie y wiernie przetłumáczone. "
+    "Cum Gratia & Privilegio S.R.M. we Gdansku Roku MDCXXXII.\"\n"
+)
+
+# description_1879 ma 403 nie białych znaków
+description_1879 = (
     "description=Polska Biblia Gdańska 1879\n"
-    "short.title=PBG\n"
+    "short.title=PBG1879\n"
     "lang=pol\n"
     "publish.date=2025\n"
     "publisher=\n"
@@ -16,7 +33,7 @@ description = (
     "source=<a href=\"https://github.com/piotrskurzynski/biblia\">https://github.com/piotrskurzynski/biblia</a>\n"
     "about=Polska Biblia Gdańska 1879 (1632, rewizja 1879). "
     "\"Biblija Święta to jest wszystko Pismo Święte starego i nowego Testamentu. "
-    "Z hebrajskiego i greckiego języka na polski pilnie i wiernie przetłómaczona.\""
+    "Z hebrajskiego i greckiego języka na polski pilnie i wiernie przetłómaczona.\"\n"
 )
 
 
@@ -44,8 +61,15 @@ def main():
                     if verse:
                         output_lines.append(verse)
 
-    output_path = root / "PBG_the_word.ont"
-    output_path.write_text("\n".join(output_lines) + "\n\n\n" + description + "\n", encoding="utf-8")
+    if (version_folders == ['1632']):
+        output_path = root / "PBG1632_the_word.ont"
+        output_path.write_text("\n".join(output_lines) + "\n\n\n" + description_1632, encoding="utf-8")
+    elif (version_folders == ['1879']):
+        output_path = root / "PBG1879_the_word.ont"
+        output_path.write_text("\n".join(output_lines) + "\n\n\n" + description_1879, encoding="utf-8")
+    # elif (version_folders == ['20nn']):
+        # output_path = root / "PBG20nn_the_word.ont"
+        # output_path.write_text("\n".join(output_lines) + "\n\n\n" + description_20nn, encoding="utf-8")
 
     print(f"Pomyslnie zakonczono modyfikacje i utworzono plik: {output_path}.")
 

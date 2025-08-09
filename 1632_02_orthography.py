@@ -21,18 +21,24 @@ def modify_text(content):
         content = content.replace(old, new)
     return content
 
-def process_txt_files(directory):
-    base_dir = pathlib.Path(directory).resolve()  # Ścieżka bazowa (bieżący katalog)
+def process_txt_files_in_1632_directory(root_folder):
+    base_dir = pathlib.Path(root_folder).resolve()  # Ścieżka bazowa (bieżący katalog)
 
-    for root, _, files in os.walk(directory):
+    target_dir = base_dir / "1632"
+
+    if not target_dir.exists() or not target_dir.is_dir():
+
+        raise FileNotFoundError(f"Nie znaleziono katalogu: {target_dir}")
+    
+    for root, _, files in os.walk(target_dir):
         root_path = pathlib.Path(root).resolve()
         
         # Pomijamy katalog główny (tylko przeszukujemy podfoldery)
-        if root_path == base_dir:
+        if root_path == target_dir:
             continue
 
         for file in files:
-            if file.endswith(".txt"):
+            if file.lower().endswith(".txt"):
                 file_path = root_path / file
                 with open(file_path, "r", encoding="utf-8") as f:
                     content = f.read()
@@ -44,5 +50,5 @@ def process_txt_files(directory):
 
 if __name__ == "__main__":
     folder = pathlib.Path(__file__).parent  # Katalog, w którym znajduje się skrypt
-    process_txt_files(folder)
+    process_txt_files_in_1632_directory(folder)
     print("Pomyslnie zmieniono ortografie.")
