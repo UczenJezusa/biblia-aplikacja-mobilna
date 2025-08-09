@@ -45,7 +45,7 @@ def main():
     if len(version_folders) == 0:
         raise FileNotFoundError("Nie znaleziono folderu 1632 ani 1879 w biezacym katalogu.")
     if len(version_folders) > 1:
-        raise Exception("Umiesc w biezacym katalogu tylko jeden folder - 1879 lub 1632.")
+        raise Exception("Umiesc w biezacym katalogu tylko jeden folder z plikami tekstowymi biblii - 1879 lub 1632.")
 
     version_path = root / version_folders[0]
     output_lines = []

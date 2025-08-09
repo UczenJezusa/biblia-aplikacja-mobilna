@@ -2,18 +2,6 @@ import re
 import unicodedata
 from pathlib import Path
 
-# BOOK_NAMES = [
-#     "Genesis", "Exodus", "Leviticus", "Numbers", "Deuteronomy", "Joshua", "Judges",
-#     "Ruth", "1 Samuel", "2 Samuel", "1 Kings", "2 Kings", "1 Chronicles",
-#     "2 Chronicles", "Ezra", "Nehemiah", "Esther", "Job", "Psalms", "Proverbs",
-#     "Ecclesiastes", "Song of Songs", "Isaiah", "Jeremiah", "Lamentations", "Ezekiel",
-#     "Daniel", "Hosea", "Joel", "Amos", "Obadiah", "Jonah", "Micah", "Nahum",
-#     "Habakkuk", "Zephaniah", "Haggai", "Zechariah", "Malachi", "Matthew", "Mark",
-#     "Luke", "John", "Acts", "Romans", "1 Corinthians", "2 Corinthians", "Galatians",
-#     "Ephesians", "Philippians", "Colossians", "1 Thessalonians", "2 Thessalonians",
-#     "1 Timothy", "2 Timothy", "Titus", "Philemon", "Hebrews", "James", "1 Peter",
-#     "2 Peter", "1 John", "2 John", "3 John", "Jude", "Revelation"
-# ]
 
 def normalize_and_strip(text):
     text = unicodedata.normalize("NFKC", text)
@@ -28,7 +16,7 @@ file1 = "PBG_original.txt"
 if not Path(file1).exists():
     raise FileNotFoundError(f"Brak pliku wejsciowego w biezacym folderze: PBG_original.txt")
 
-# Możliwe nazwy dla file2 — priorytetowana lista
+# Możliwe nazwy dla file2
 candidates = [
     "PBG1632_the_word.ont",
     "PBG1879_the_word.ont",
