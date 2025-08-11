@@ -19,7 +19,7 @@ Stworzenie pliku biblii dla współczesnej rewizji będzie najbardziej zbliżone
 
 Poniżej znajduje się instrukcja jak z plików tekstowych biblii uzyskać plik typu The Word z rozszerzeniem `.ont`, kompatybilny z biblijnymi aplikacjami mobilnymi. Uzyskany plik można udostępnić moderatorom aplikacji mobilnych (np. kontakt poprzez wiadomość email; dla wordproject.org same pliki tekstowe dostępne na [zdalnym repozytorium](https://github.com/piotrskurzynski/biblia) są wystarczające). Dzięki temu można w prosty i szybki sposób zaktualizować cały tekst biblii dostępny w aplikacji mobilnej.
 
-Sprawdzone działanie na Windows, lecz nie powinno być problemów z innymi systemami operacyjnymi (W terminalu Linux skrypty uruchamia się używając `/` zamiast `\`). Poniższa instrukcja opisana jest dla systemu operacyjnego Windows.
+Sprawdzone działanie poniższej instrukcji na systemie operacyjnym Windows, lecz nie powinno być problemów z innymi systemami operacyjnymi (W terminalu Linux skrypty uruchamia się używając `/` zamiast `\`). Poniższa instrukcja opisana jest dla systemu operacyjnego Windows.
 
 ### 1. Przygotowanie
 
@@ -74,6 +74,9 @@ ls
 
 Można też używać klawisza `Tab` do łatwego uzupełniania niepełnej nazwy folderu/skryptu.
 
+UWAGA!<br>
+W przypadku aktualizacji wielu wydań biblii nie tworzyć plików równolegle - najpierw wykonać instrukcję dla np. wydania z 1632 a potem, po uzyskaniu pliku końcowego dla 1632, usunąć z folderu ze skryptami wszystkie dodane/utworzone pliki oraz foldery (tj. `PBG_original.txt`, `PBGnnnn_the_word.ont.` oraz folder `1632`). Dopiero po usunięciu wykonywać od początku instrukcję dla kolejnego wydania np. 1879.
+
 ---
 
 ### 2. [dla tekstu z 1632 roku; pomiń ten punkt w przypadku edycji tekstu z 1879]<br> Poprawa kursywy oraz ortografia
@@ -106,11 +109,17 @@ python .\03_generate_merged_original_bible_file.py; if ($?) { python .\01_kjv_ve
 
 Pomyślna modyfikacja jest wtedy, gdy pojawi się TYLKO napis `Pomyslnie zakonczono modyfikacje i utworzono plik: PBGnnnn_the_word.ont.` gdzie `nnnn` - data wydania biblii.
 
+Skrypty `02_generate_ont_file.py` oraz `test_none_of_the_characters_fell.py` automatycznie rozpoznają które wydanie biblii, 1879 lub 1632, jest edytowane i uwzględnione jest dodawanie odpowiedniego opisu na końcu pliku `.ont`.
+
 UWAGA!<br>
 Niektóre modyfikacje w skrypcie `01_kjv_verse_align.py` zależą od konkretnych znaków w tekście. Zatem przy pracy nad tekstem rewizji współczesnej (nie 1879 czy 1632, ale 20nn) należy upewnić się czy skrypt poprawnie modyfikuje pliki wymienione na końcu tego pliku*.
 
 Na tym etapie wyjściowy plik biblii `PBGnnnn_the_word.ont` powinien zawierać dokładnie 31 102 niepuste linie tekstu (nie licząc opisu na końcu biblii) - dokładnie tyle ile ich zawiera biblia KJV. 
 <br>Należy to sprawdzić uruchamiając plik np. w Notatniku (prawy przycisk myszy na nazwie pliku -> `Otwórz za pomocą...` -> `Więcej aplikacji` -> wybrać np. `Notatnik`). W przypadku używania aplikacji Notatnik w dolnym pasku wyświetla się liczba linii w której aktualnie się znajduje użytkownik. Przejść do koniec pliku tekstowego i sprawdzić czy dla kursora znajdującego się w ostatniej niepustej linii (poza opisem na końcu pliku), wartość Lin to 31 102.
+
+UWAGA!<br>
+W przypadku tworzenia pliku na bazie 1632:<br>
+Ze względu na trwającą digitalizację wydania z 1632 roku (stan na 08.2025) liczba wersetów może ulec zmianie. Jeśli liczba wersetów wyjściowego pliku `*.ont` będzie różna od KJV (31 102) to znaczy że program nie działa prawidłowo i należy z niego nie korzystać, bądź naprawić błąd - w celach diagnostycznych, znalezienia miejsca np. nadmiarowych wersetów mogą pomóc programy "The word", "WinMerge" oraz [poradnik video](https://www.youtube.com/watch?v=jPupNk5u864). Potem z pewnością będzie wymagana zmiana w kodzie skryptu `01_kjv_verse_align.py` (aktualnie odmienna ilość wersetów obecna tylko dla 1632 jest obsługiwana od linii 140. skryptu).
 
 Jeśli numeracja się zgadza, warto jeszcze przetestować czy powyższe modyfikacje nie zmieniły ilości znaków w tekście.
 
