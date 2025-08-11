@@ -19,7 +19,7 @@ Stworzenie pliku biblii dla współczesnej rewizji będzie najbardziej zbliżone
 
 Poniżej znajduje się instrukcja jak z plików tekstowych biblii uzyskać plik typu The Word z rozszerzeniem `.ont`, kompatybilny z biblijnymi aplikacjami mobilnymi. Uzyskany plik można udostępnić moderatorom aplikacji mobilnych (np. kontakt poprzez wiadomość email; dla wordproject.org same pliki tekstowe dostępne na [zdalnym repozytorium](https://github.com/piotrskurzynski/biblia) są wystarczające). Dzięki temu można w prosty i szybki sposób zaktualizować cały tekst biblii dostępny w aplikacji mobilnej.
 
-Sprawdzone działanie poniższej instrukcji na systemie operacyjnym Windows, lecz nie powinno być problemów z innymi systemami operacyjnymi (W terminalu Linux skrypty uruchamia się używając `/` zamiast `\`). Poniższa instrukcja opisana jest dla systemu operacyjnego Windows.
+Sprawdzone działanie poniższej instrukcji na systemie operacyjnym Windows, lecz nie powinno być problemów z innymi systemami (W terminalu Linux skrypty uruchamia się używając `/` zamiast `\`). Poniższa instrukcja opisana jest dla systemu operacyjnego Windows.
 
 ### 1. Przygotowanie
 
