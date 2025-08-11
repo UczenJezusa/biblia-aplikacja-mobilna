@@ -1,39 +1,7 @@
 import re
 import unicodedata
+from pathlib import Path
 
-BOOK_NAMES = [
-    "Genesis", "Exodus", "Leviticus", "Numbers", "Deuteronomy", "Joshua", "Judges",
-    "Ruth", "1 Samuel", "2 Samuel", "1 Kings", "2 Kings", "1 Chronicles",
-    "2 Chronicles", "Ezra", "Nehemiah", "Esther", "Job", "Psalms", "Proverbs",
-    "Ecclesiastes", "Song of Songs", "Isaiah", "Jeremiah", "Lamentations", "Ezekiel",
-    "Daniel", "Hosea", "Joel", "Amos", "Obadiah", "Jonah", "Micah", "Nahum",
-    "Habakkuk", "Zephaniah", "Haggai", "Zechariah", "Malachi", "Matthew", "Mark",
-    "Luke", "John", "Acts", "Romans", "1 Corinthians", "2 Corinthians", "Galatians",
-    "Ephesians", "Philippians", "Colossians", "1 Thessalonians", "2 Thessalonians",
-    "1 Timothy", "2 Timothy", "Titus", "Philemon", "Hebrews", "James", "1 Peter",
-    "2 Peter", "1 John", "2 John", "3 John", "Jude", "Revelation"
-]
-
-def clean_references(content):
-    # Dołączamy nazwy ksiąg do jednego OR (|) wzorca, posortowane malejąco długością, aby najdłuższe nazwy były dopasowane pierwsze
-    sorted_books = sorted(BOOK_NAMES, key=len, reverse=True)
-    book_pattern = "|".join(re.escape(book) for book in sorted_books)
-    
-    # Wzorzec:
-    # (opcjonalny przedrostek byref|pref|ref z ewentualną spacją) + nazwa księgi + spacja + liczba:liczba
-    # usuwamy cały ten fragment, uwzględniając ewentualne spacje wokół
-    pattern = rf"(?:\b(?:byref|pref|ref)\b\s*)?({book_pattern})\s+\d+:\d+"
-    
-    # Usuwamy wszystkie dopasowania wzorca
-    content = re.sub(pattern, "", content)
-    
-    # Usuwamy nadmiarowe spacje powstałe po usunięciu
-    content = re.sub(r'\s{2,}', ' ', content)
-    
-    # Usuwamy spacje na początku i końcu
-    content = content.strip()
-    
-    return content
 
 def normalize_and_strip(text):
     text = unicodedata.normalize("NFKC", text)
@@ -43,7 +11,33 @@ def normalize_and_strip(text):
 
 # Pliki wejściowe
 file1 = "PBG_original.txt"
-file2 = "PBG_the_word.ont"
+
+# Sprawdź istnienie file1
+if not Path(file1).exists():
+    raise FileNotFoundError(f"Brak pliku wejsciowego w biezacym folderze: PBG_original.txt")
+
+# Możliwe nazwy dla file2
+candidates = [
+    "PBG1632_the_word.ont",
+    "PBG1879_the_word.ont",
+    # "PBG20nn_the_word.ont"
+]
+
+# Zbierz które z candidate istnieją
+existing = [name for name in candidates if Path(name).exists()]
+
+if len(existing) == 0:
+    raise FileNotFoundError(
+        "Nie znaleziono pliku PBGnnnn_the_word.ont w biezacym folderze."
+    )
+elif len(existing) > 1:
+    raise FileExistsError(
+        "Znaleziono więcej niż jeden plik PBGnnnn_the_word.ont. "
+        "Usuń niepotrzebne pliki.\n"
+        "Znalezione pliki: " + ", ".join(existing)
+    )
+else:
+    file2 = existing[0]
 
 
 # Wczytaj oryginalne treści
@@ -52,10 +46,6 @@ with open(file1, encoding="utf-8") as f:
 
 with open(file2, encoding="utf-8") as f:
     content2 = f.read()
-
-# Usuń referencje z pliku 2
-cleaned_content2 = clean_references(content2)
-
 
 ############   Kod diagnostyczny początek    ##########################
 # Kod pomocny w celach diagnostycznych.
@@ -66,10 +56,10 @@ cleaned_content2 = clean_references(content2)
 # out1 = "PBG_mod_1.txt"
 # out2 = "PBG_mod_2.txt"
 # with open(modified_file2, "w", encoding="utf-8") as f:
-#     f.write(cleaned_content2)
+#     f.write(content2)
     
 # normalized1 = normalize_and_strip(content1)
-# normalized2 = normalize_and_strip(cleaned_content2)
+# normalized2 = normalize_and_strip(content2)
 
 # # Zapis oczyszczonych wersji do plików
 # with open(out1, "w", encoding="utf-8") as f:
@@ -86,14 +76,21 @@ cleaned_content2 = clean_references(content2)
 
 # Porównanie długości
 count1 = len(normalize_and_strip(content1))
-count2 = len(normalize_and_strip(cleaned_content2))
+count2 = len(normalize_and_strip(content2))
 
-description_length = 399 # patrz skrypt 02_generate_ont_file.py
+# W celu uzyskania długości description patrz: skrypt 02_generate_ont_file.py
+if file2 == candidates[0]: # PBG1632_the_word.ont
+    description_length = 418
+elif file2 == candidates[1]: # PBG1879_the_word.ont
+    description_length = 403
+# elif file2 == candidates[2]: # PBG20nn_the_word.ont
+#     description_length = 
+
 count1 = count1 + description_length
 
 if count1 == count2:
-    print("Liczba znaków (bez białych znaków i referencji) jest IDENTYCZNA.")
+    print("Liczba znaków (bez białych znaków) jest IDENTYCZNA.")
 else:
-    print("Liczba znaków (bez białych znaków i referencji) jest RÓŻNA.")
+    print("Liczba znaków (bez białych znaków) jest RÓŻNA.")
     print(f"{file1}: {count1} znaków")
-    print(f"{file2} (po modyfikacji): {count2} znaków")
+    print(f"{file2}: {count2} znaków")

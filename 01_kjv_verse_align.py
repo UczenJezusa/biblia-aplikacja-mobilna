@@ -132,7 +132,7 @@ def detect_base_dir():
     
     if len(dirs) > 1:
         raise Exception(
-            "Znaleziono wiecej niż jeden katalog bazowy. "
+            "Znaleziono wiecej niż jeden folder z plikami tekstowymi biblii. "
             "Zostaw w biezacym katalogu tylko jeden z: '1879', '1632' lub '20nn'."
         )
     selected = dirs[0]

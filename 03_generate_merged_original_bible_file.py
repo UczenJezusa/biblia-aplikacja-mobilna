@@ -2,7 +2,23 @@ import os
 from pathlib import Path
 import re
 
+def detect_base_dir():
+    cwd = os.getcwd()
+    dirs = [d for d in ("1879", "1632") if os.path.isdir(os.path.join(cwd, d))] # do dodania rok współczesnej rewizji: ,"20nn"
+    if len(dirs) == 0:
+        raise FileNotFoundError(
+            "Nie znaleziono folderu '1879', '1632' ani katalogu w formacie '20nn' w biezacym katalogu."
+        )
+    
+    if len(dirs) > 1:
+        raise Exception(
+            "Znaleziono wiecej niż jeden folder z plikami tekstowymi biblii. "
+            "Zostaw w biezacym katalogu tylko jeden z: '1879', '1632' lub '20nn'."
+        )
+
 def main():
+    detect_base_dir()
+
     current_folder = Path.cwd()
     output_file = current_folder / "PBG_original.txt"
 

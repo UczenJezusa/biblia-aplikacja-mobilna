@@ -5,29 +5,29 @@
 **Celem projektu jest umieszczenie współczesnej rewizji tekstu Biblii Gdańskiej w aplikacjach mobilnych oraz portalach internetowych.**
 
 Ze względu na trwające poprawki w [tekście cyfrowym pisma świętego](https://github.com/piotrskurzynski/biblia), sensowność projektu ogranicza się do:
-- aktualizowanie tekstu z wydania 1879 roku np. co rok, dwa lata w aplikacjach mobilnych,
-- czekanie na współczesną rewizję tekstu Biblii Gdańskiej, a potem stworzenie finalnego pliku biblii używając niżej opisanych skryptów (możliwe wymagane zmiany w oprogramowaniu w celu prawidłowego działania - więcej informacji niżej).
+- Aktualizowania tekstu z wydania 1879 roku np. co rok, dwa lata w aplikacjach mobilnych,
+- Czekania na współczesną rewizję tekstu Biblii Gdańskiej, a potem stworzenie finalnego pliku biblii używając niżej opisanych skryptów (możliwe wymagane zmiany w oprogramowaniu w celu prawidłowego działania - więcej informacji niżej).
 
-Aby teskt biblii był poprawnie wyświetlany w mobilnych aplikacjach biblijnych (np. `mybible` czy `MySword`) jej sumaryczna ilość linii (wersetów) musi równać się ilości linii biblii King James Version (KJV). Biblia Gdańska oryginalnie ma trochę więcej wersetów. Wyjściowy plik biblii uzyskany po wykonaniu poniższych skryptów, zawiera ilość linii (wersetów) zgodną z KJV.
+Aby tekst biblii był poprawnie wyświetlany w mobilnych aplikacjach biblijnych (np. `mybible` czy `MySword`) jej sumaryczna ilość linii (wersetów) musi równać się ilości linii biblii King James Version (KJV). Biblia Gdańska oryginalnie ma trochę więcej wersetów. Wyjściowy plik biblii uzyskany po wykonaniu poniższych skryptów, zawiera ilość linii (wersetów) zgodną z KJV.
 
 UWAGA!<br>
-Aktualnie niniejsza instrukcja działa tylko dla tekstu z rewizji z 1879 roku. Informacje o możliwym prawidłowym działaniu w przyszłości dla tekstu z 1632 roku można znaleźć w pliku `INFO - UPDATE 1632.txt` w katalogu `Rozwój oprogramowania`.
+Aktualnie niniejsza instrukcja działa dla tekstów z 1632 roku oraz rewizji z 1879 roku.<br>
 
 Stworzenie pliku biblii dla współczesnej rewizji będzie najbardziej zbliżone do tworzenia pliku na bazie tekstu z 1632 roku. Lista rzeczy które należy zmienić w oprogramowaniu dla pliku biblii z 1632 roku tak, aby wyjściowy plik był poprawnie tworzony dla współczesnego wydania, obejmuje np.:
 - zmiany w skrypcie `01_kjv_verse_align.py` (szczegóły niżej),
 - nie używanie skryptu `1632_02_orthography.py`.
 
-Poniżej znajduje się instrukcja jak z plików tekstowych biblii uzyskać plik typu The Word z rozszerzeniem `.ont`, kompatybilny z biblijnymi aplikacjami mobilnymi. Uzyskany plik można udostępnić moderatorom aplikacji mobilnych (np. kontakt poprzez wiadomość email; dla wordproject.org same pliki tekstowe biblii są wystarczające). Dzięki temu można w prosty i szybki sposób zaktualizować cały tekst biblii dostępny w aplikacji mobilnej.
+Poniżej znajduje się instrukcja jak z plików tekstowych biblii uzyskać plik typu The Word z rozszerzeniem `.ont`, kompatybilny z biblijnymi aplikacjami mobilnymi. Uzyskany plik można udostępnić moderatorom aplikacji mobilnych (np. kontakt poprzez wiadomość email; dla wordproject.org same pliki tekstowe dostępne na [zdalnym repozytorium](https://github.com/piotrskurzynski/biblia) są wystarczające). Dzięki temu można w prosty i szybki sposób zaktualizować cały tekst biblii dostępny w aplikacji mobilnej.
 
-Sprawdzone działanie na Windows, lecz nie powinno być problemów z innymi systemami operacyjnymi (W terminalu Linux skrypty uruchamia się używając `/` zamiast `\`). Poniższa instrukcja opisana jest dla systemu operacyjnego Windows.
+Sprawdzone działanie poniższej instrukcji na systemie operacyjnym Windows, lecz nie powinno być problemów z innymi systemami (W terminalu Linux skrypty uruchamia się używając `/` zamiast `\`). Poniższa instrukcja opisana jest dla systemu operacyjnego Windows.
 
 ### 1. Przygotowanie
 
-- Wypakuj plik ZIP "Instrukcja - biblia w aplikacji mobilnej" w wybranym przez siebie folderze. W przypadku czytania tej instrukcji z poziomu platformy GitHub, należy najpierw pobrać [pliki zamieszczone na GitHubie](https://github.com/UczenJezusa/biblia-aplikacja-mobilna) poprzez wybranie zielonej ikony z napisem `Code` -> `Download ZIP`. Następnie wypakować plik ZIP w wybranym przez siebie folderze.
-- Umieść w wypakowanym folderze (od tej pory nazywany on będzie folderem ze skryptami) folder biblii zawierający [pliki tekstowe ze zdalnego repozytorium na Github'ie](https://github.com/piotrskurzynski/biblia) - na stronie internetowej pobrać i wypakować plik ZIP analogicznie do opisu wyżej i skopiować folder `1879` lub `1632` do folderu ze skryptami.
+- Wypakuj plik ZIP "Instrukcja - biblia w aplikacji mobilnej" w wybranym przez siebie folderze. W przypadku czytania tej instrukcji z poziomu platformy GitHub, należy najpierw pobrać [pliki zamieszczone na GitHub'ie](https://github.com/UczenJezusa/biblia-aplikacja-mobilna) poprzez wybranie zielonej ikony z napisem `Code` -> `Download ZIP`. Następnie wypakować plik ZIP w wybranym przez siebie folderze.
+- Umieść w wypakowanym folderze (od tej pory nazywany on będzie folderem ze skryptami) folder biblii zawierający [pliki tekstowe ze zdalnego repozytorium na GitHub'ie](https://github.com/piotrskurzynski/biblia) - na stronie internetowej pobrać i wypakować plik ZIP analogicznie do opisu wyżej i skopiować folder `1879` lub `1632` do folderu ze skryptami.
 	
 UWAGA 1:<br>
-W danym momencie może znajdować się tylko jeden z wyżej wymienionych folderów w folderze ze skryptami. W przeciwnym przypadku skrypt nie dokona modyfikacji na plikach i wyświetli stosowny komunikat.
+W danym momencie może znajdować się tylko jeden z folderów (`1632` lub `1879`) w folderze ze skryptami. W przeciwnym przypadku skrypt nie dokona modyfikacji na plikach i wyświetli stosowny komunikat.
 
 UWAGA 2:<br>
 W niniejszym pliku występują fragmenty kodu lub komend oznaczone na początku i końcu znakami np.:
@@ -59,15 +59,23 @@ cd D:
 
 A potem poniższą komendę aby przejść do folderu ze skryptami (wpisać swoją ścieżkę):
 ```powershell
-cd tutaj/sciezka/do/mojego/folderu
+cd tutaj\sciezka\do\mojego\folderu
 ```
 
-Przydatne może być wyświetlanie zawartości w aktualnym folderze - służy do tego poniższa komenda:
+Przydatna może być też komenda umożliwiająca przejście do folderu nadrzędnego:
+```powershell
+cd ..
+```
+
+Lub komenda do wyświetlania zawartości bieżącego folderu:
 ```powershell
 ls
 ```
 
 Można też używać klawisza `Tab` do łatwego uzupełniania niepełnej nazwy folderu/skryptu.
+
+UWAGA!<br>
+W przypadku aktualizacji wielu wydań biblii nie tworzyć plików równolegle - najpierw wykonać instrukcję dla np. wydania z 1632 a potem, po uzyskaniu pliku końcowego dla 1632, usunąć z folderu ze skryptami wszystkie dodane/utworzone pliki oraz foldery (tj. `PBG_original.txt`, `PBGnnnn_the_word.ont.` oraz folder `1632`). Dopiero po usunięciu wykonywać od początku instrukcję dla kolejnego wydania np. 1879.
 
 ---
 
@@ -79,10 +87,10 @@ Można też używać klawisza `Tab` do łatwego uzupełniania niepełnej nazwy f
 python .\1632_01_fix_italics.py
 ```
 
-Jeśli pojawi się komunikat `Wykryto n bledow tagowania`, należy poprawić ręcznie podane linie tekstu: otworzyć wymieniony w komunikacie plik .txt znaleźć stosowną linię, porównać z oryginałem skanu [szczegóły tutaj](https://github.com/piotrskurzynski/biblia/blob/main/info.md) i nanieść zmianę.
+Jeśli pojawi się komunikat `Wykryto n bledow tagowania`, należy poprawić ręcznie podane linie tekstu: otworzyć wymieniony w komunikacie plik .txt znaleźć stosowną linię, porównać z oryginałem skanu szczegóły [tutaj](https://github.com/piotrskurzynski/biblia/blob/main/info.md) i nanieść zmianę.
 <br>Najlepiej dodatkowo od razu zgłosić na podanej stronie internetowej błąd.
 <br>Możliwe że pojawi się więcej komunikatów odnoszących się do tej samej linii tekstu - wówczas wystarczy poprawić tylko tę jedną linię.
-<br>Dla pewności można uruchomić powyższy skrypt jeszcze raz - powinien pojawić się komunikat:`Brak bledow tagowania.` - w takiej sytuacji można przejść do kolejnego kroku:
+<br>Po poprawie, dla pewności można uruchomić powyższy skrypt jeszcze raz - powinien pojawić się komunikat: `Brak bledow tagowania.` - w takiej sytuacji można przejść do kolejnego kroku:
 
 Uruchomić kolejny skrypt komendą:
 ```powershell
@@ -99,19 +107,25 @@ Po przejściu do folderu ze skryptami w terminalu, uruchomić polecenie (wklej p
 python .\03_generate_merged_original_bible_file.py; if ($?) { python .\01_kjv_verse_align.py; if ($?) { python .\02_generate_ont_file.py } }
 ```
 
+Pomyślna modyfikacja jest wtedy, gdy pojawi się TYLKO napis `Pomyslnie zakonczono modyfikacje i utworzono plik: PBGnnnn_the_word.ont.` gdzie `nnnn` - data wydania biblii.
+
+Skrypty `02_generate_ont_file.py` oraz `test_none_of_the_characters_fell.py` automatycznie rozpoznają które wydanie biblii, 1879 lub 1632, jest edytowane oraz uwzględnione jest dodawanie odpowiedniego opisu na końcu pliku `.ont`.
+
 UWAGA!<br>
 Niektóre modyfikacje w skrypcie `01_kjv_verse_align.py` zależą od konkretnych znaków w tekście. Zatem przy pracy nad tekstem rewizji współczesnej (nie 1879 czy 1632, ale 20nn) należy upewnić się czy skrypt poprawnie modyfikuje pliki wymienione na końcu tego pliku*.
 
-Pomyślna modyfikacja jest wtedy, gdy pojawią się TYLKO napis `Pomyslnie zakonczono modyfikacje i utworzono plik: PBG_the_word.ont.`
-
-Na tym etapie wyjściowy plik biblii `PBG_the_word.ont` powinien zawierać dokładnie 31 102 niepuste linie tekstu (nie licząc opisu na końcu biblii) - dokładnie tyle ile ich zawiera biblia KJV. 
+Na tym etapie wyjściowy plik biblii `PBGnnnn_the_word.ont` powinien zawierać dokładnie 31 102 niepuste linie tekstu (nie licząc opisu na końcu biblii) - dokładnie tyle ile ich zawiera biblia KJV. 
 <br>Należy to sprawdzić uruchamiając plik np. w Notatniku (prawy przycisk myszy na nazwie pliku -> `Otwórz za pomocą...` -> `Więcej aplikacji` -> wybrać np. `Notatnik`). W przypadku używania aplikacji Notatnik w dolnym pasku wyświetla się liczba linii w której aktualnie się znajduje użytkownik. Przejść do koniec pliku tekstowego i sprawdzić czy dla kursora znajdującego się w ostatniej niepustej linii (poza opisem na końcu pliku), wartość Lin to 31 102.
+
+UWAGA!<br>
+W przypadku tworzenia pliku na bazie 1632:<br>
+Ze względu na trwającą digitalizację wydania z 1632 roku (stan na 08.2025) liczba wersetów może ulec zmianie. Jeśli liczba wersetów wyjściowego pliku `*.ont` będzie różna od KJV (31 102) to znaczy że program nie działa prawidłowo i należy z niego nie korzystać, bądź naprawić błąd - w celach diagnostycznych, znalezienia miejsca np. nadmiarowych wersetów mogą pomóc programy "The word", "WinMerge" oraz [poradnik video](https://www.youtube.com/watch?v=jPupNk5u864). Następnie trzeba będzie zmodyfikować skrypt `01_kjv_verse_align.py` tak, aby zmieniał ilość wersetów do 31 102 (aktualnie odmienna numeracja wersetów, specyficzna tylko dla 1632, jest poprawiana w skrypcie od linii 140.).
 
 Jeśli numeracja się zgadza, warto jeszcze przetestować czy powyższe modyfikacje nie zmieniły ilości znaków w tekście.
 
 ### 4. Testowanie wprowadzonych modyfikacji
 
-Aby przetestować czy liczba znaków przed i po modyfikacji jest taka sama, należy uruchomić skrypt:
+Uruchomić skrypt:
 ```powershell
 python .\test_none_of_the_characters_fell.py
 ```
@@ -125,9 +139,10 @@ Jeśli po wykonaniu skryptu ukazuje się komunikat o identycznej ilości znaków
 
 Więcej szczegółów o tym jak działają skrypty i możliwości ich modyfikacji można znaleźć w poszczególnych skryptach `*.py` w oraz plikach w katalogu `Rozwój oprogramowania`.
 
-Do zrobeienia:
-- dodać test na ilość linii pliku `PBG_the_word.ont` po wykonaniu skryptów z [punktu 3. instrukcji](#3-uzyskanie-pliku-w-formacie-the-word)
+Lista rzeczy do poprawy/ulepszenia:
+- dodać test na ilość linii pliku `PBGnnnn_the_word.ont` po wykonaniu skryptów z [punktu 3. instrukcji](#3-uzyskanie-pliku-w-formacie-the-word)
 
+---
 
 <br>* Lista plików których modyfikacja zależy od konkretnego znaku w tekście. Numeracja odpowiada kategoriom w skrypcie `01_kjv_verse_align.py`:
 
