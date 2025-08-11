@@ -87,7 +87,7 @@ W przypadku aktualizacji wielu wydań biblii nie tworzyć plików równolegle - 
 python .\1632_01_fix_italics.py
 ```
 
-Jeśli pojawi się komunikat `Wykryto n bledow tagowania`, należy poprawić ręcznie podane linie tekstu: otworzyć wymieniony w komunikacie plik .txt znaleźć stosowną linię, porównać z oryginałem skanu [szczegóły tutaj](https://github.com/piotrskurzynski/biblia/blob/main/info.md) i nanieść zmianę.
+Jeśli pojawi się komunikat `Wykryto n bledow tagowania`, należy poprawić ręcznie podane linie tekstu: otworzyć wymieniony w komunikacie plik .txt znaleźć stosowną linię, porównać z oryginałem skanu szczegóły [tutaj](https://github.com/piotrskurzynski/biblia/blob/main/info.md) i nanieść zmianę.
 <br>Najlepiej dodatkowo od razu zgłosić na podanej stronie internetowej błąd.
 <br>Możliwe że pojawi się więcej komunikatów odnoszących się do tej samej linii tekstu - wówczas wystarczy poprawić tylko tę jedną linię.
 <br>Po poprawie, dla pewności można uruchomić powyższy skrypt jeszcze raz - powinien pojawić się komunikat: `Brak bledow tagowania.` - w takiej sytuacji można przejść do kolejnego kroku:
@@ -109,7 +109,7 @@ python .\03_generate_merged_original_bible_file.py; if ($?) { python .\01_kjv_ve
 
 Pomyślna modyfikacja jest wtedy, gdy pojawi się TYLKO napis `Pomyslnie zakonczono modyfikacje i utworzono plik: PBGnnnn_the_word.ont.` gdzie `nnnn` - data wydania biblii.
 
-Skrypty `02_generate_ont_file.py` oraz `test_none_of_the_characters_fell.py` automatycznie rozpoznają które wydanie biblii, 1879 lub 1632, jest edytowane i uwzględnione jest dodawanie odpowiedniego opisu na końcu pliku `.ont`.
+Skrypty `02_generate_ont_file.py` oraz `test_none_of_the_characters_fell.py` automatycznie rozpoznają które wydanie biblii, 1879 lub 1632, jest edytowane oraz uwzględnione jest dodawanie odpowiedniego opisu na końcu pliku `.ont`.
 
 UWAGA!<br>
 Niektóre modyfikacje w skrypcie `01_kjv_verse_align.py` zależą od konkretnych znaków w tekście. Zatem przy pracy nad tekstem rewizji współczesnej (nie 1879 czy 1632, ale 20nn) należy upewnić się czy skrypt poprawnie modyfikuje pliki wymienione na końcu tego pliku*.
@@ -119,7 +119,7 @@ Na tym etapie wyjściowy plik biblii `PBGnnnn_the_word.ont` powinien zawierać d
 
 UWAGA!<br>
 W przypadku tworzenia pliku na bazie 1632:<br>
-Ze względu na trwającą digitalizację wydania z 1632 roku (stan na 08.2025) liczba wersetów może ulec zmianie. Jeśli liczba wersetów wyjściowego pliku `*.ont` będzie różna od KJV (31 102) to znaczy że program nie działa prawidłowo i należy z niego nie korzystać, bądź naprawić błąd - w celach diagnostycznych, znalezienia miejsca np. nadmiarowych wersetów mogą pomóc programy "The word", "WinMerge" oraz [poradnik video](https://www.youtube.com/watch?v=jPupNk5u864). Potem z pewnością będzie wymagana zmiana w kodzie skryptu `01_kjv_verse_align.py` (aktualnie odmienna ilość wersetów obecna tylko dla 1632 jest obsługiwana od linii 140. skryptu).
+Ze względu na trwającą digitalizację wydania z 1632 roku (stan na 08.2025) liczba wersetów może ulec zmianie. Jeśli liczba wersetów wyjściowego pliku `*.ont` będzie różna od KJV (31 102) to znaczy że program nie działa prawidłowo i należy z niego nie korzystać, bądź naprawić błąd - w celach diagnostycznych, znalezienia miejsca np. nadmiarowych wersetów mogą pomóc programy "The word", "WinMerge" oraz [poradnik video](https://www.youtube.com/watch?v=jPupNk5u864). Następnie trzeba będzie zmodyfikować skrypt `01_kjv_verse_align.py` tak, aby zmieniał ilość wersetów do 31 102 (aktualnie odmienna numeracja wersetów, specyficzna tylko dla 1632, jest poprawiana w skrypcie od linii 140.).
 
 Jeśli numeracja się zgadza, warto jeszcze przetestować czy powyższe modyfikacje nie zmieniły ilości znaków w tekście.
 
@@ -142,6 +142,7 @@ Więcej szczegółów o tym jak działają skrypty i możliwości ich modyfikacj
 Lista rzeczy do poprawy/ulepszenia:
 - dodać test na ilość linii pliku `PBGnnnn_the_word.ont` po wykonaniu skryptów z [punktu 3. instrukcji](#3-uzyskanie-pliku-w-formacie-the-word)
 
+---
 
 <br>* Lista plików których modyfikacja zależy od konkretnego znaku w tekście. Numeracja odpowiada kategoriom w skrypcie `01_kjv_verse_align.py`:
 
