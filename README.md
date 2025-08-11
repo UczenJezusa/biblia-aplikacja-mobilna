@@ -90,7 +90,7 @@ python .\1632_01_fix_italics.py
 Jeśli pojawi się komunikat `Wykryto n bledow tagowania`, należy poprawić ręcznie podane linie tekstu: otworzyć wymieniony w komunikacie plik .txt znaleźć stosowną linię, porównać z oryginałem skanu [szczegóły tutaj](https://github.com/piotrskurzynski/biblia/blob/main/info.md) i nanieść zmianę.
 <br>Najlepiej dodatkowo od razu zgłosić na podanej stronie internetowej błąd.
 <br>Możliwe że pojawi się więcej komunikatów odnoszących się do tej samej linii tekstu - wówczas wystarczy poprawić tylko tę jedną linię.
-<br>Po poprawieniu, dla pewności można uruchomić powyższy skrypt jeszcze raz - powinien pojawić się komunikat: `Brak bledow tagowania.` - w takiej sytuacji można przejść do kolejnego kroku:
+<br>Po poprawie, dla pewności można uruchomić powyższy skrypt jeszcze raz - powinien pojawić się komunikat: `Brak bledow tagowania.` - w takiej sytuacji można przejść do kolejnego kroku:
 
 Uruchomić kolejny skrypt komendą:
 ```powershell
